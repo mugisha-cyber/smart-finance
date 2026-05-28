@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Smart Finance | Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div>
+        <header class="sf-header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <a href="#" class="sf-logo">
+                    <div class="sf-logo-mark">SF</div>
+                    Smart Finance
+                </a>
+            </div>
+            <div class="sf-greeting">
+                <p class="sf-add-text">Welcome back, Mugisha! we are glad to have you here.</p>
+            </div>
+            <div class="sf-header-right">
+                <select class="sf-lang-select">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="rw">Kinyarwanda</option>
+                    <option value="es">Swahili</option>
+                </select>
+                <div class="sf-dark-toggle">Dark</div>
+                <div class="sf-profile-btn">
+                    <div class="sf-avatar">ME</div>
+                    <span class="sf-profile-name">Mugisha Elise</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="sf-layout">
+            <aside>
+                <div class="sidebar-section">
+                    <div class="sidebar-label">Record Your Stuff Here</div>
+                    <button class="nav-btn active">Dashboard</button>
+                    <button class="nav-btn">Record income</button>
+                    <button class="nav-btn">Record expense</button>
+                    <button class="nav-btn">Record saving</button>
+                    <button class="nav-btn">Record loan</button>
+                    <button class="nav-btn">Record Debtors</button>
+                </div>
+                <div class="sidebar-section">
+                    <div class="sidebar-label">
+                        Planning & Analysing
+                    </div>
+                    <button class="nav-btn">Set a goal</button>
+                    <button class="nav-btn">Financial reports</button>
+                    <button class="nav-btn">Budget planner</button>
+                    <button class="nav-btn">View Income trend</button>
+                    <button class="nav-btn">View Expenses process</button>
+                </div>
+                <div class="divider"></div>
+                <div style="padding: 0 20px;">
+                    <small>Better Management Better Future</small>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center; gap: 10px; padding: 0 20px;">
+                    <div class="sf-logo-mark">SF</div>
+                    <div>
+                        <h3 style="font-size: 14px;">Smart Finance</h3>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="sf-main">
+                <h1 class="sf-page-title">Dashboard | Smart Finance & Virtual Wallet</h1>
+                <p class="sf-page-sub">Your Financial overview | monitor your daily transactions and view it here</p>
+
+                <div class="sf-status-bar">
+                    <span>Your quick current financial status is here</span>
+                </div>
+
+                <div class="sf-grid-4">
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Total Daily Income</div>
+                        <div class="sf-stat-value green">******</div>
+                        <div class="sf-stat-sub">Your Daily Income</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Total Daily Expenses</div>
+                        <div class="sf-stat-value red">******</div>
+                        <div class="sf-stat-sub">Your Daily Expense</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Net Balance</div>
+                        <div class="sf-stat-value">******</div>
+                        <div class="sf-stat-sub">Your current balance</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Your daily savings</div>
+                        <div class="sf-stat-value green">******</div>
+                        <div class="sf-stat-label" style="margin-top: 12px;">Whole Savings</div>
+                        <div class="sf-stat-value">******</div>
+                    </div>
+                </div>
+
+                <div class="sf-grid-2">
+                    <div class="sf-card">
+                        <div class="sf-card-header">
+                            <span class="sf-card-title">Recent transactions</span>
+                            <button class="sf-view-all">View all</button>
+                        </div>
+                        <div class="sf-empty-placeholder">No transactions yet</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-card-header">
+                            <span class="sf-card-title">Active loans taken and Debt</span>
+                            <button class="sf-view-all">View all</button>
+                        </div>
+                        <small>Your Creditors</small>
+                        <div class="sf-empty-placeholder" style="margin-top: 8px;">No loan taken yet</div>
+                        <div class="divider"></div>
+                        <small>DEBTORS</small>
+                        <div class="sf-empty-placeholder" style="margin-top: 8px;">No any debtors yet</div>
+                    </div>
+                </div>
+
+                <div class="sf-grid-3">
+                    <div class="sf-card">
+                        <div class="sf-card-header">
+                            <span class="sf-card-title">Daily financial view Graph</span>
+                        </div>
+                        <div class="sf-chart-placeholder">Bar chart of your daily transactions</div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div class="sf-card">
+                            <div class="sf-card-header">
+                                <span class="sf-card-title">Savings set aside</span>
+                            </div>
+                            <div class="sf-stat-value green" style="font-size: 22px;">******</div>
+                            <div class="sf-stat-sub">This month's Savings</div>
+                        </div>
+                        <div class="sf-card">
+                            <div class="sf-card-header">
+                                <span class="sf-card-title">Savings & financial goals</span>
+                                <button class="sf-view-all">View all</button>
+                            </div>
+                            <div class="sf-empty-placeholder">Active Goals</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sf-card">
+                    <div class="sf-card-header">
+                        <span class="sf-card-title">Quick actions</span>
+                    </div>
+                    <div class="sf-button-group">
+                        <button class="sf-btn" style="background-color: aqua;">Add income</button>
+                        <button class="sf-btn" style="background-color: aqua;">Add expense</button>
+                        <button class="sf-btn" style="background-color: aqua;">Add saving</button>
+                        <button class="sf-btn" style="background-color: aqua;">Record loan</button>
+                        <button class="sf-btn" style="background-color: aqua;">Set goal</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="sf-footer">
+            <div>Smart Finance © 2026. All rights reserved.</div>
+            <div class="sf-footer-links">
+                <a href="#">Privacy policy</a>
+                <a href="#">Terms of service</a>
+                <a href="#">Help center</a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+</html>

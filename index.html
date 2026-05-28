@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Finance | Your Wallet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7f6;
+            color: #1a2e24;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        
+        header {
+            background: #069b50;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #e2e8e4;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .logo-text h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1f543f;
+            letter-spacing: -0.3px;
+        }
+        
+        .logo-text small {
+            font-size: 13px;
+            color: #6b8b7c;
+        }
+        
+        .sf-logo-mark {
+            width: 70px;
+            height: 70px;
+            background: #1f543f;
+            border: 2px solid #1f543f;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 48px;
+            color: white;
+            font-family: 'Segoe UI', 'Arial Black', sans-serif;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        
+        .sf-logo-mark:hover {
+            transform: scale(1.02);
+        }
+        
+        nav {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #2c4d3e;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 30px;
+            transition: all 0.2s;
+        }
+        
+        nav a:hover {
+            background: #e8f0ec;
+            color: #166344;
+        }
+        
+        .nav-btn {
+            background: #1f704c;
+            color: white !important;
+            padding: 8px 22px;
+            border-radius: 40px;
+        }
+        
+        .nav-btn:hover {
+            background: #0c4b33;
+            transform: translateY(-1px);
+        }
+        
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 60px 40px 70px 40px;
+            align-items: center;
+        }
+        
+        .hero-left {
+            flex: 1;
+            min-width: 280px;
+            background: #ffffff;
+            padding: 32px 34px;
+            border-radius: 48px;
+            border: 1px solid #e2ece6;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        .tag {
+            background: #e6f3ee;
+            color: #186445;
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .hero-left h1 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 18px;
+            color: #0f3527;
+        }
+        
+        .hero-left p {
+            font-size: 18px;
+            color: #4a6b5c;
+            margin-bottom: 32px;
+            max-width: 520px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .btn-start {
+            background: #1f704c;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 44px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .btn-start:hover {
+            background: #0d523a;
+            transform: translateY(-2px);
+        }
+        
+        .hero-buttons a {
+            color: #1f704c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #cbdcd3;
+        }
+        
+        .hero-right {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            min-width: 280px;
+        }
+        
+        .feature-card {
+            background: #ffffff;
+            padding: 28px 22px;
+            border-radius: 28px;
+            border: 1px solid #e2ece6;
+            transition: 0.25s;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.02);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: #c2d9ce;
+            box-shadow: 0 20px 28px rgba(0, 0, 0, 0.06);
+        }
+        
+        .feature-card h3 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a6146;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card p {
+            color: #5a7b6b;
+            font-size: 15px;
+            line-height: 1.45;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            padding: 70px 40px;
+            background: #ffffff;
+            border-top: 1px solid #e8f0ec;
+            border-bottom: 1px solid #e8f0ec;
+            margin: 20px 0;
+        }
+        
+        .info-box {
+            background: #fafdfb;
+            padding: 34px 28px;
+            border-radius: 32px;
+            text-align: center;
+            flex: 1;
+            min-width: 240px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e2ece6;
+            transition: all 0.2s;
+        }
+        
+        .info-box:hover {
+            background: #ffffff;
+            border-color: #c2d9ce;
+            transform: translateY(-4px);
+        }
+        
+        .info-box h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #1a543f;
+        }
+        
+        .info-box p {
+            color: #5a7768;
+            font-size: 16px;
+        }
+        
+        .simple-separator {
+            width: 48px;
+            height: 3px;
+            background: #cde6dd;
+            margin: 18px auto 0 auto;
+            border-radius: 10px;
+        }
+        
+        footer {
+            background: #0f2c22;
+            color: #eef3f0;
+            text-align: center;
+            padding: 44px 24px 36px;
+            margin-top: 20px;
+        }
+        
+        footer h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            color: #f0f7f3;
+        }
+        
+        footer p {
+            color: #c2dfd2;
+            margin-bottom: 26px;
+            font-size: 15px;
+        }
+        
+        .social-text {
+            display: flex;
+            justify-content: center;
+            gap: 36px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        
+        .social-text span {
+            background: #204f3e;
+            padding: 6px 20px;
+            border-radius: 60px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #eef5f1;
+            cursor: default;
+            letter-spacing: 0.3px;
+            transition: 0.2s;
+        }
+        
+        .social-text span:hover {
+            background: #317a5e;
+            transform: translateY(-2px);
+            cursor: pointer;
+        }
+        
+        footer small {
+            font-size: 13px;
+            color: #98b9ab;
+            display: inline-block;
+        }
+        
+        @media (max-width: 820px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 14px;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-left {
+                text-align: center;
+                padding: 28px;
+            }
+            .hero-left p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .info-box {
+                max-width: 380px;
+                width: 100%;
+            }
+            .hero-right {
+                width: 100%;
+            }
+            .sf-logo-mark {
+                width: 60px;
+                height: 60px;
+                font-size: 40px;
+            }
+        }
+        
+        @media (max-width: 550px) {
+            .hero-left h1 {
+                font-size: 38px;
+            }
+            .hero-right {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <div class="sf-logo-mark">SF</div>
+            <div class="logo-text">
+                <h2>Smart Finance Management System</h2>
+                <small>Control Your Money Smartly</small>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html" class="nav-btn">Sign Up</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-left">
+            <span class="tag">PERSONAL FINANCE SYSTEM</span>
+            <h1>Manage Your Money<br> Without Stress</h1>
+            <p>Track your income, expenses, savings and loans in one smart and simple platform.</p>
+            <div class="hero-buttons">
+                <button class="btn-start" onclick="location.href='signup.html'">Get Started</button>
+                <a href="login.html">Already have account?</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="feature-card">
+                <h3>Income</h3>
+                <p>Monitor all your earnings easily. Keep track of salary, or any source of money.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Expenses</h3>
+                <p>Understand where your money goes daily. Analyze spending patterns and reduce waste.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Loans</h3>
+                <p>Keep records of borrowed money. Manage what you owe to others or lend responsibly.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Savings</h3>
+                <p>Grow and protect your future savings. Set financial goals and track progress.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="info-box">
+            <h3>Daily Reports</h3>
+            <p>View your daily financial performance clearly. See income vs expense summaries.</p>
+        </div>
+        <div class="info-box">
+            <h3>Smart Advice</h3>
+            <p>Receive financial tips and suggestions based on your spending behavior.</p>
+        </div>
+        <div class="info-box">
+            <h3>Secure Data</h3>
+            <p>Your financial information stays protected with simple but strong privacy.</p>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Smart Finance</h3>
+        <p>Smart way to manage personal finance.</p>
+        <div class="social-text">
+            <span>Facebook</span>
+            <span>Instagram</span>
+            <span>Twitter</span>
+        </div>
+        <small>© 2026 Smart Finance. All Rights Reserved.</small>
+    </footer>
+</body>
+
+</html>

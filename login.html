@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Smart Finance | Sign In</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Google Sans', Roboto, 'Helvetica Neue', sans-serif;
+            background: #0c1217;
+            color: #eef3f0;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: rgba(16, 24, 30, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(72, 110, 95, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .logo-text h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #c6f0e2;
+            letter-spacing: -0.3px;
+        }
+        
+        .logo-text small {
+            font-size: 13px;
+            color: #92b8aa;
+        }
+        
+        .sf-logo-mark {
+            width: 70px;
+            height: 70px;
+            background: #0f171f;
+            border: 2px solid #3b9b78;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 48px;
+            color: #cbf3e4;
+            font-family: 'Segoe UI', 'Arial Black', sans-serif;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease, border-color 0.2s;
+        }
+        
+        .sf-logo-mark:hover {
+            transform: scale(1.02);
+            border-color: #63c9a4;
+        }
+        
+        nav {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #d9f0e8;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 30px;
+            transition: all 0.2s;
+        }
+        
+        nav a:hover {
+            background: rgba(59, 155, 120, 0.2);
+            color: #c6ffea;
+        }
+        
+        .nav-btn {
+            background: #2a7f60;
+            color: white !important;
+            padding: 8px 22px;
+            border-radius: 40px;
+        }
+        
+        .nav-btn:hover {
+            background: #1c6048;
+            transform: translateY(-1px);
+        }
+        
+        .form-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+        }
+        
+        .form-box {
+            width: 500px;
+            max-width: 94%;
+            background: #111b22;
+            border-radius: 44px;
+            padding: 48px 44px 52px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(70, 140, 115, 0.25);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.55s ease-out;
+        }
+        
+        .form-box:hover {
+            box-shadow: 0 30px 55px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(90, 180, 145, 0.35);
+            background: #13222b;
+        }
+        
+        .form-box h2 {
+            text-align: center;
+            margin-bottom: 42px;
+            font-size: 34px;
+            font-weight: 600;
+            color: #cef5e8;
+            letter-spacing: -0.2px;
+        }
+        
+        .input-group {
+            position: relative;
+            margin-bottom: 38px;
+            width: 100%;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 18px 18px 6px 18px;
+            font-size: 16px;
+            font-family: inherit;
+            background: transparent;
+            border: 2px solid #3e6053;
+            border-radius: 12px;
+            outline: none;
+            color: #f2fcf8;
+            transition: border 0.2s, box-shadow 0.2s;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        
+        .input-group input::placeholder {
+            color: transparent;
+        }
+        
+        .input-group label {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            font-weight: 500;
+            color: #9dc0b2;
+            background-color: transparent;
+            padding: 0 5px;
+            pointer-events: none;
+            transition: 0.2s ease-out;
+            line-height: 1;
+            border-radius: 20px;
+        }
+        
+        .input-group input:focus~label,
+        .input-group input:not(:placeholder-shown)~label {
+            top: 0px;
+            transform: translateY(-50%);
+            font-size: 12px;
+            font-weight: 600;
+            color: #85e0c2;
+            background-color: #111b22;
+            padding: 0 6px;
+            left: 14px;
+            letter-spacing: 0.2px;
+        }
+        
+        .input-group input:focus {
+            border-color: #5bcb9f;
+            box-shadow: 0 0 0 3px rgba(91, 203, 159, 0.2);
+            background: rgba(18, 32, 38, 0.5);
+        }
+        
+        .input-group input:not(:placeholder-shown) {
+            border-color: #568e79;
+        }
+        
+        .input-group input:-webkit-autofill,
+        .input-group input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 100px #16252e inset;
+            -webkit-text-fill-color: #f0f9f4;
+            border-color: #5bcb9f;
+        }
+        
+        .input-group input:-webkit-autofill~label {
+            top: 0px;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: #85e0c2;
+            background-color: #111b22;
+        }
+        
+        .form-box button {
+            background: #2a8f6b;
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 40px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            margin-top: 20px;
+            font-family: inherit;
+            letter-spacing: 0.5px;
+            width: 100%;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .form-box button:hover {
+            background: #197354;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(26, 105, 78, 0.35);
+        }
+        
+        .form-box button:active {
+            transform: translateY(0);
+        }
+        
+        .form-box p {
+            text-align: center;
+            margin-top: 34px;
+            color: #a1c4b6;
+            font-size: 15px;
+        }
+        
+        .form-box a {
+            color: #8be6cb;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: 0.2s;
+        }
+        
+        .form-box a:hover {
+            border-bottom-color: #8be6cb;
+            color: #c2f5e8;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        footer {
+            background: #071016;
+            color: #d4e9e1;
+            text-align: center;
+            padding: 32px 24px 28px;
+            margin-top: auto;
+            border-top: 1px solid rgba(70, 130, 108, 0.3);
+        }
+        
+        footer h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            color: #caefe3;
+        }
+        
+        footer p {
+            color: #8eb3a4;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .social-text {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+        }
+        
+        .social-text span {
+            background: #1a2d2a;
+            padding: 5px 18px;
+            border-radius: 60px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #cae3da;
+            cursor: default;
+            letter-spacing: 0.3px;
+            transition: 0.2s;
+        }
+        
+        .social-text span:hover {
+            background: #2d5b4c;
+            transform: translateY(-2px);
+            cursor: pointer;
+        }
+        
+        footer small {
+            font-size: 12px;
+            color: #7ea392;
+            display: inline-block;
+        }
+        
+        @media (max-width: 640px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 14px;
+                padding: 16px 20px;
+            }
+            .logo {
+                justify-content: center;
+            }
+            nav {
+                justify-content: center;
+            }
+            .form-box {
+                padding: 36px 24px;
+            }
+            .form-box h2 {
+                font-size: 30px;
+                margin-bottom: 34px;
+            }
+            .sf-logo-mark {
+                width: 55px;
+                height: 55px;
+                font-size: 38px;
+            }
+            .logo-text h2 {
+                font-size: 18px;
+            }
+            .logo-text small {
+                font-size: 11px;
+            }
+            .input-group input {
+                padding: 16px 16px 6px 16px;
+                font-size: 15px;
+            }
+            .input-group label {
+                left: 16px;
+                font-size: 15px;
+            }
+            .input-group input:focus~label,
+            .input-group input:not(:placeholder-shown)~label {
+                font-size: 11px;
+                left: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .form-box {
+                padding: 28px 22px 34px;
+                border-radius: 36px;
+            }
+            .input-group {
+                margin-bottom: 34px;
+            }
+            .input-group input {
+                padding: 15px 16px 6px 16px;
+            }
+            .form-box button {
+                padding: 14px 20px;
+                font-size: 16px;
+            }
+            .input-group input:focus~label,
+            .input-group input:not(:placeholder-shown)~label {
+                font-size: 10px;
+                top: 0px;
+                transform: translateY(-50%);
+            }
+        }
+        /* Edge refinement: ensure raised label background blends perfectly */
+        
+        .input-group input:focus~label,
+        .input-group input:not(:placeholder-shown)~label {
+            background-color: #111b22;
+        }
+        /* make the transition smooth like Google forms */
+        
+        .input-group label,
+        .input-group input {
+            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        /* slight radius for consistent design */
+        
+        .input-group input {
+            border-radius: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <div class="sf-logo-mark">SF</div>
+            <div class="logo-text">
+                <h2>Smart Finance Management System</h2>
+                <small>Control Your Money Smartly</small>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="signup.html" class="nav-btn">Sign Up</a>
+        </nav>
+    </header>
+
+    <section class="form-section">
+        <div class="form-box">
+            <h2>Welcome Back</h2>
+
+            <form>
+
+                <div class="input-group">
+                    <input type="email" id="loginEmail" name="email" placeholder=" " required autocomplete="email">
+                    <label for="loginEmail">Enter Email address</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="loginPassword" name="password" placeholder=" " required autocomplete="current-password">
+                    <label for="loginPassword">Enter Password</label>
+                </div>
+                <button type="submit" onclick="window.location.href='dashboard.html'">Sign in </button>
+            </form>
+            <p>
+                New Here ?
+                <a href="signup.html ">Create account</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Smart Finance</h3>
+        <p>Smart way to manage personal finance.</p>
+        <div class="social-text ">
+            <span>Facebook</span>
+            <span>Instagram</span>
+            <span>Twitter</span>
+        </div>
+        <small>© 2026 Smart Finance. All Rights Reserved.</small>
+    </footer>
+
+</body>
+
+</html>
