@@ -9,341 +9,326 @@
 </head>
 
 <body>
-    <div>
-        <header class="sf-header">
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <a href="#" class="sf-logo">
+    <header class="sf-header">
+        <a href="#" class="sf-logo">
+            <div class="sf-logo-mark">SF</div>
+            Smart Finance
+        </a>
+        <div class="sf-greeting">
+            Welcome back, Mugisha! we are glad to have you here.
+        </div>
+        <div class="sf-header-right">
+            <select class="sf-lang-select">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="rw">Kinyarwanda</option>
+                <option value="es">Swahili</option>
+            </select>
+            <div class="sf-dark-toggle">Dark</div>
+            <div class="sf-profile-btn">
+                <div class="sf-avatar">ME</div>
+                <span class="sf-profile-name">Mugisha Elise</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="sf-layout">
+        <aside>
+            <div class="sidebar-section">
+                <div class="sidebar-label">Record Your Stuff Here</div>
+                <a href="#dashboard" class="nav-link"><button class="nav-btn" data-nav="dashboard">Dashboard</button></a>
+                <a href="#incomeForm" class="nav-link"><button class="nav-btn" data-nav="income">Record income</button></a>
+                <a href="#expenseForm" class="nav-link"><button class="nav-btn" data-nav="expense">Record expense</button></a>
+                <a href="#savingForm" class="nav-link"><button class="nav-btn" data-nav="saving">Record saving</button></a>
+                <a href="#loanForm" class="nav-link"><button class="nav-btn" data-nav="loan">Record loan</button></a>
+                <a href="#debtorForm" class="nav-link"><button class="nav-btn" data-nav="debtor">Record Debtors</button></a>
+            </div>
+            <div class="sidebar-section">
+                <div class="sidebar-label">Planning & Analysing</div>
+                <a href="#goalForm" class="nav-link"><button class="nav-btn" data-nav="goal">Set a goal</button></a>
+                <button class="nav-btn">Financial reports</button>
+                <button class="nav-btn">Budget planner</button>
+                <button class="nav-btn">View Income trend</button>
+                <button class="nav-btn">View Expenses process</button>
+            </div>
+            <div class="divider"></div>
+            <div class="sidebar-footer">
+                <small>Better Management Better Future</small>
+                <div class="sidebar-brand">
                     <div class="sf-logo-mark">SF</div>
-                    Smart Finance
-                </a>
-            </div>
-            <div class="sf-greeting">
-                <p class="sf-add-text">Welcome back, Mugisha! we are glad to have you here.</p>
-            </div>
-            <div class="sf-header-right">
-                <select class="sf-lang-select">
-                    <option value="en">English</option>
-                    <option value="fr">Français</option>
-                    <option value="rw">Kinyarwanda</option>
-                    <option value="es">Swahili</option>
-                </select>
-                <div class="sf-dark-toggle">Dark</div>
-                <div class="sf-profile-btn">
-                    <div class="sf-avatar">ME</div>
-                    <span class="sf-profile-name">Mugisha Elise</span>
+                    <h3>Smart Finance</h3>
                 </div>
             </div>
-        </header>
+        </aside>
 
-        <div class="sf-layout">
-            <aside>
-                <div class="sidebar-section">
-                    <div class="sidebar-label">Record Your Stuff Here</div>
-                    <a href="#dashboard" class="nav-link"><button class="nav-btn active">Dashboard</button></a>
-                    <a href="#incomeForm" class="nav-link"><button class="nav-btn">Record income</button></a>
-                    <a href="#expenseForm" class="nav-link"><button class="nav-btn">Record expense</button></a>
-                    <a href="#savingForm" class="nav-link"><button class="nav-btn">Record saving</button></a>
-                    <a href="#loanForm" class="nav-link"><button class="nav-btn">Record loan</button></a>
-                    <a href="#debtorForm" class="nav-link"><button class="nav-btn">Record Debtors</button></a>
+        <main class="sf-main">
+            <div id="incomeForm" class="form-panel">
+                <h2 class="form-title">Record Income</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Income Source</label>
+                        <input type="text" placeholder="e.g., Salary, Freelance, Business" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input type="number" placeholder="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" placeholder="Any notes...">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="submit-btn">Save Income</button>
+                        <a href="#dashboard" class="cancel-btn">Cancel</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="expenseForm" class="form-panel">
+                <h2 class="form-title">Record Expense</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Expense Category</label>
+                        <select>
+                            <option>Food & Groceries</option>
+                            <option>Transport</option>
+                            <option>Rent & Utilities</option>
+                            <option>Entertainment</option>
+                            <option>Healthcare</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input type="number" placeholder="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" placeholder="What did you spend on?">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="submit-btn">Save Expense</button>
+                        <a href="#dashboard" class="cancel-btn">Cancel</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="savingForm" class="form-panel">
+                <h2 class="form-title">Record Saving</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Saving Goal Name</label>
+                        <input type="text" placeholder="e.g., Emergency Fund, Vacation">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Amount Saved</label>
+                            <input type="number" placeholder="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Target Amount</label>
+                            <input type="number" placeholder="Goal amount">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="submit-btn">Save Saving</button>
+                        <a href="#dashboard" class="cancel-btn">Cancel</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="loanForm" class="form-panel">
+                <h2 class="form-title">Record Loan Taken</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Lender Name</label>
+                        <input type="text" placeholder="Who did you borrow from?">
+                    </div>
+                    <div class="form-group">
+                        <label>Loan Amount</label>
+                        <input type="number" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Interest Rate (%)</label>
+                        <input type="number" placeholder="e.g., 5" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="submit-btn">Record Loan</button>
+                        <a href="#dashboard" class="cancel-btn">Cancel</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="debtorForm" class="form-panel">
+                <h2 class="form-title">Record Debtor</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Debtor Name</label>
+                        <input type="text" placeholder="Full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Amount Owed</label>
+                        <input type="number" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Expected Repayment Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Reason / Notes</label>
+                        <input type="text" placeholder="Why do they owe you?">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="submit-btn">Save Debtor</button>
+                        <a href="#dashboard" class="cancel-btn">Cancel</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="goalForm" class="form-panel">
+                <h2 class="form-title">Set a Financial Goal</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Goal Name</label>
+                        <input type="text" placeholder="e.g., Buy a car, House, Education">
+                    </div>
+                    <div class="form-group">
+                        <label>Target Amount</label>
+                        <input type="number" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Target Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Current Progress</label>
+                        <input type="number" placeholder="Amount saved so far">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="submit-btn">Set Goal</button>
+                        <a href="#dashboard" class="cancel-btn">Cancel</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="dashboard">
+                <h1 class="sf-page-title">Dashboard | Smart Finance & Virtual Wallet</h1>
+                <p class="sf-page-sub">Your Financial overview | monitor your daily transactions and view it here</p>
+
+                <div class="sf-status-bar">
+                    <span>Your quick current financial status is here</span>
                 </div>
-                <div class="sidebar-section">
-                    <div class="sidebar-label">
-                        Planning & Analysing
+
+                <div class="sf-grid-4">
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Total Daily Income</div>
+                        <div class="sf-stat-value green">******</div>
+                        <div class="sf-stat-sub">Your Daily Income</div>
                     </div>
-                    <button class="nav-btn">Set a goal</button>
-                    <button class="nav-btn">Financial reports</button>
-                    <button class="nav-btn">Budget planner</button>
-                    <button class="nav-btn">View Income trend</button>
-                    <button class="nav-btn">View Expenses process</button>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Total Daily Expenses</div>
+                        <div class="sf-stat-value red">******</div>
+                        <div class="sf-stat-sub">Your Daily Expense</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Net Balance</div>
+                        <div class="sf-stat-value">******</div>
+                        <div class="sf-stat-sub">Your current balance</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Your daily savings</div>
+                        <div class="sf-stat-value green">******</div>
+                        <div class="sf-stat-label">Whole Savings</div>
+                        <div class="sf-stat-value">******</div>
+                    </div>
                 </div>
-                <div class="divider"></div>
-                <div style="padding: 0 20px;">
-                    <small>Better Management Better Future</small>
-                </div>
-                <br>
-                <div style="display: flex; align-items: center; gap: 10px; padding: 0 20px;">
-                    <div class="sf-logo-mark">SF</div>
-                    <div>
-                        <h3 style="font-size: 14px;">Smart Finance</h3>
-                    </div>
-                </div>
-            </aside>
 
-            <main class="sf-main">
-                <div id="dashboard">
-                    <h1 class="sf-page-title">Dashboard | Smart Finance & Virtual Wallet</h1>
-                    <p class="sf-page-sub">Your Financial overview | monitor your daily transactions and view it here</p>
-
-                    <div class="sf-status-bar">
-                        <span>Your quick current financial status is here</span>
-                    </div>
-
-                    <div class="sf-grid-4">
-                        <div class="sf-card">
-                            <div class="sf-stat-label">Total Daily Income</div>
-                            <div class="sf-stat-value green">******</div>
-                            <div class="sf-stat-sub">Your Daily Income</div>
-                        </div>
-                        <div class="sf-card">
-                            <div class="sf-stat-label">Total Daily Expenses</div>
-                            <div class="sf-stat-value red">******</div>
-                            <div class="sf-stat-sub">Your Daily Expense</div>
-                        </div>
-                        <div class="sf-card">
-                            <div class="sf-stat-label">Net Balance</div>
-                            <div class="sf-stat-value">******</div>
-                            <div class="sf-stat-sub">Your current balance</div>
-                        </div>
-                        <div class="sf-card">
-                            <div class="sf-stat-label">Your daily savings</div>
-                            <div class="sf-stat-value green">******</div>
-                            <div class="sf-stat-label" style="margin-top: 12px;">Whole Savings</div>
-                            <div class="sf-stat-value">******</div>
-                        </div>
-                    </div>
-
-                    <div class="sf-grid-2">
-                        <div class="sf-card">
-                            <div class="sf-card-header">
-                                <span class="sf-card-title">Recent transactions</span>
-                                <button class="sf-view-all">View all</button>
-                            </div>
-                            <div class="sf-empty-placeholder">No transactions yet</div>
-                        </div>
-                        <div class="sf-card">
-                            <div class="sf-card-header">
-                                <span class="sf-card-title">Active loans taken and Debt</span>
-                                <button class="sf-view-all">View all</button>
-                            </div>
-                            <small>Your Creditors</small>
-                            <div class="sf-empty-placeholder" style="margin-top: 8px;">No loan taken yet</div>
-                            <div class="divider"></div>
-                            <small>DEBTORS</small>
-                            <div class="sf-empty-placeholder" style="margin-top: 8px;">No any debtors yet</div>
-                        </div>
-                    </div>
-
-                    <div class="sf-grid-3">
-                        <div class="sf-card">
-                            <div class="sf-card-header">
-                                <span class="sf-card-title">Daily financial view Graph</span>
-                            </div>
-                            <div class="sf-chart-placeholder">Bar chart of your daily transactions</div>
-                        </div>
-                        <div style="display: flex; flex-direction: column; gap: 16px;">
-                            <div class="sf-card">
-                                <div class="sf-card-header">
-                                    <span class="sf-card-title">Savings set aside</span>
-                                </div>
-                                <div class="sf-stat-value green" style="font-size: 22px;">******</div>
-                                <div class="sf-stat-sub">This month's Savings</div>
-                            </div>
-                            <div class="sf-card">
-                                <div class="sf-card-header">
-                                    <span class="sf-card-title">Savings & financial goals</span>
-                                    <button class="sf-view-all">View all</button>
-                                </div>
-                                <div class="sf-empty-placeholder">Active Goals</div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="sf-grid-2">
                     <div class="sf-card">
                         <div class="sf-card-header">
-                            <span class="sf-card-title">Quick actions</span>
+                            <span class="sf-card-title">Recent transactions</span>
+                            <button class="sf-view-all">View all</button>
                         </div>
-                        <div class="sf-button-group">
-                            <a href="#incomeForm" class="action-link"><button class="sf-btn">Add income</button></a>
-                            <a href="#expenseForm" class="action-link"><button class="sf-btn">Add expense</button></a>
-                            <a href="#savingForm" class="action-link"><button class="sf-btn">Add saving</button></a>
-                            <a href="#loanForm" class="action-link"><button class="sf-btn">Record loan</button></a>
-                            <a href="#goalForm" class="action-link"><button class="sf-btn">Set goal</button></a>
+                        <div class="sf-empty-placeholder">No transactions yet</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-card-header">
+                            <span class="sf-card-title">Active loans taken and Debt</span>
+                            <button class="sf-view-all">View all</button>
+                        </div>
+                        <small>Your Creditors</small>
+                        <div class="sf-empty-placeholder">No loan taken yet</div>
+                        <div class="divider"></div>
+                        <small>DEBTORS</small>
+                        <div class="sf-empty-placeholder">No any debtors yet</div>
+                    </div>
+                </div>
+
+                <div class="sf-grid-3">
+                    <div class="sf-card">
+                        <div class="sf-card-header">
+                            <span class="sf-card-title">Daily financial view Graph</span>
+                        </div>
+                        <div class="sf-chart-placeholder">Bar chart of your daily transactions</div>
+                    </div>
+                    <div class="sf-stack">
+                        <div class="sf-card">
+                            <div class="sf-card-header">
+                                <span class="sf-card-title">Savings set aside</span>
+                            </div>
+                            <div class="sf-stat-value sf-stat-value-sm green">******</div>
+                            <div class="sf-stat-sub">This month's Savings</div>
+                        </div>
+                        <div class="sf-card">
+                            <div class="sf-card-header">
+                                <span class="sf-card-title">Savings & financial goals</span>
+                                <button class="sf-view-all">View all</button>
+                            </div>
+                            <div class="sf-empty-placeholder">Active Goals</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Income Form -->
-                <div id="incomeForm" class="form-panel">
-                    <h2 class="form-title">Record Income</h2>
-                    <form>
-                        <div class="form-group">
-                            <label>Income Source</label>
-                            <input type="text" placeholder="e.g., Salary, Freelance, Business" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Amount </label>
-                            <input type="number" placeholder="0" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Date</label>
-                            <input type="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Description (optional)</label>
-                            <input type="text" placeholder="Any notes...">
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="submit-btn">Save Income</button>
-                            <a href="#dashboard" class="cancel-btn">Cancel</a>
-                        </div>
-                    </form>
+                <div class="sf-card">
+                    <div class="sf-card-header">
+                        <span class="sf-card-title">Quick actions</span>
+                    </div>
+                    <div class="sf-button-group">
+                        <a href="#incomeForm" class="action-link"><button class="sf-btn">Add income</button></a>
+                        <a href="#expenseForm" class="action-link"><button class="sf-btn">Add expense</button></a>
+                        <a href="#savingForm" class="action-link"><button class="sf-btn">Add saving</button></a>
+                        <a href="#loanForm" class="action-link"><button class="sf-btn">Record loan</button></a>
+                        <a href="#goalForm" class="action-link"><button class="sf-btn">Set goal</button></a>
+                    </div>
                 </div>
-
-                <!-- Expense Form -->
-                <div id="expenseForm" class="form-panel">
-                    <h2 class="form-title">Record Expense</h2>
-                    <form>
-                        <div class="form-group">
-                            <label>Expense Category</label>
-                            <select>
-                                <option>Food & Groceries</option>
-                                <option>Transport</option>
-                                <option>Rent & Utilities</option>
-                                <option>Entertainment</option>
-                                <option>Healthcare</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Amount </label>
-                            <input type="number" placeholder="0" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Date</label>
-                            <input type="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Description</label>
-                            <input type="text" placeholder="What did you spend on?">
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="submit-btn">Save Expense</button>
-                            <a href="#dashboard" class="cancel-btn">Cancel</a>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Saving Form -->
-                <div id="savingForm" class="form-panel">
-                    <h2 class="form-title">Record Saving</h2>
-                    <form>
-                        <div class="form-group">
-                            <label>Saving Goal Name</label>
-                            <input type="text" placeholder="e.g., Emergency Fund, Vacation">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Amount Saved</label>
-                                <input type="number" placeholder="0">
-                            </div>
-                            <div class="form-group">
-                                <label>Target Amount</label>
-                                <input type="number" placeholder="Goal amount">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Date</label>
-                            <input type="date">
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="submit-btn">Save Saving</button>
-                            <a href="#dashboard" class="cancel-btn">Cancel</a>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Loan Form -->
-                <div id="loanForm" class="form-panel">
-                    <h2 class="form-title">Record Loan Taken</h2>
-                    <form>
-                        <div class="form-group">
-                            <label>Lender Name</label>
-                            <input type="text" placeholder="Who did you borrow from?">
-                        </div>
-                        <div class="form-group">
-                            <label>Loan Amount (RWF)</label>
-                            <input type="number" placeholder="0">
-                        </div>
-                        <div class="form-group">
-                            <label>Interest Rate (%)</label>
-                            <input type="number" placeholder="e.g., 5">
-                        </div>
-                        <div class="form-group">
-                            <label>Due Date</label>
-                            <input type="date">
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="submit-btn">Record Loan</button>
-                            <a href="#dashboard" class="cancel-btn">Cancel</a>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Debtor Form -->
-                <div id="debtorForm" class="form-panel">
-                    <h2 class="form-title">Record Debtor</h2>
-                    <form>
-                        <div class="form-group">
-                            <label>Debtor Name</label>
-                            <input type="text" placeholder="Full name">
-                        </div>
-                        <div class="form-group">
-                            <label>Amount Owed (RWF)</label>
-                            <input type="number" placeholder="0">
-                        </div>
-                        <div class="form-group">
-                            <label>Expected Repayment Date</label>
-                            <input type="date">
-                        </div>
-                        <div class="form-group">
-                            <label>Reason / Notes</label>
-                            <input type="text" placeholder="Why do they owe you?">
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="submit-btn">Save Debtor</button>
-                            <a href="#dashboard" class="cancel-btn">Cancel</a>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Goal Form -->
-                <div id="goalForm" class="form-panel">
-                    <h2 class="form-title">Set a Financial Goal</h2>
-                    <form>
-                        <div class="form-group">
-                            <label>Goal Name</label>
-                            <input type="text" placeholder="e.g., Buy a car, House, Education">
-                        </div>
-                        <div class="form-group">
-                            <label>Target Amount (RWF)</label>
-                            <input type="number" placeholder="0">
-                        </div>
-                        <div class="form-group">
-                            <label>Target Date</label>
-                            <input type="date">
-                        </div>
-                        <div class="form-group">
-                            <label>Current Progress (RWF)</label>
-                            <input type="number" placeholder="Amount saved so far">
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="submit-btn">Set Goal</button>
-                            <a href="#dashboard" class="cancel-btn">Cancel</a>
-                        </div>
-                    </form>
-                </div>
-            </main>
-        </div>
-
-        <footer class="sf-footer">
-            <div>Smart Finance © 2026. All rights reserved.</div>
-            <div class="sf-footer-links">
-                <a href="#">Privacy policy</a>
-                <a href="#">Terms of service</a>
-                <a href="#">Help center</a>
             </div>
-        </footer>
+        </main>
     </div>
+
+    <footer class="sf-footer">
+        <div>Smart Finance © 2026. All rights reserved.</div>
+        <div class="sf-footer-links">
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms of service</a>
+            <a href="#">Help center</a>
+        </div>
+    </footer>
 </body>
 
 </html>
