@@ -45,6 +45,157 @@ body {
     z-index: 200;
 }
 
+
+/* Whole page dark mode css*/
+
+body.dark {
+    background: #121212;
+    color: #ffffff;
+}
+
+
+/* Header  dark mode css */
+
+body.dark .sf-header {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+
+/* Sidebar dark mode css */
+
+body.dark aside {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+
+/* Sidebar headings */
+
+body.dark .sidebar-label {
+    color: #dddddd;
+}
+
+
+/* Navigation buttons */
+
+body.dark .nav-btn {
+    background: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+body.dark .nav-btn:hover {
+    background: #3b3b3b;
+}
+
+
+/* Dashboard cards */
+
+body.dark .sf-card {
+    background: #1f1f1f;
+    color: #ffffff;
+    border: 1px solid #333;
+}
+
+
+/* Form panels */
+
+body.dark .form-panel {
+    background: #1f1f1f;
+    color: #ffffff;
+}
+
+
+/* Inputs */
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+    background: #2d2d2d;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+
+/* Placeholder text */
+
+body.dark input::placeholder {
+    color: #aaaaaa;
+}
+
+
+/* Main buttons */
+
+body.dark .sf-btn,
+body.dark .submit-btn {
+    background: #0d6efd;
+    color: white;
+}
+
+
+/* Cancel button */
+
+body.dark .cancel-btn {
+    background: #444;
+    color: white;
+}
+
+
+/* View all buttons */
+
+body.dark .sf-view-all {
+    background: #2d2d2d;
+    color: white;
+}
+
+
+/* Footer */
+
+body.dark .sf-footer {
+    background: #111111;
+    color: white;
+}
+
+
+/* Footer links */
+
+body.dark .sf-footer a {
+    color: #66b3ff;
+}
+
+
+/* Language selector */
+
+body.dark .sf-lang-select {
+    background: #2d2d2d;
+    color: white;
+    border: 1px solid #555;
+}
+
+
+/* Dark mode toggle button */
+
+body.dark .sf-dark-toggle {
+    background: #333;
+    color: white;
+}
+
+
+/* Profile button */
+
+body.dark .sf-profile-btn {
+    background: #2d2d2d;
+    color: white;
+}
+
+
+/* Dividers */
+
+body.dark .divider {
+    border-color: #444;
+}
+
 .sf-logo {
     display: flex;
     align-items: center;

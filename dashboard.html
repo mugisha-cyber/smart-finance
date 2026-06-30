@@ -14,7 +14,7 @@
             <div class="sf-logo-mark">SF</div>
             Smart Finance
         </a>
-        <div class="sf-greeting">
+        <div class="sf-greeting" id="sf-greeting">
             Welcome back, Mugisha! we are glad to have you here.
         </div>
         <div class="sf-header-right">
@@ -24,12 +24,13 @@
                 <option value="rw">Kinyarwanda</option>
                 <option value="es">Swahili</option>
             </select>
-            <div class="sf-dark-toggle">Dark</div>
+            <div class="sf-dark-toggle">
+                <button id="sf-theme-Toggle">Dark</button>
+            </div>
             <div class="sf-profile-btn">
                 <div class="sf-avatar">ME</div>
                 <span class="sf-profile-name">Mugisha Elise</span>
             </div>
-        </div>
     </header>
 
     <div class="sf-layout">
@@ -46,7 +47,7 @@
             <div class="sidebar-section">
                 <div class="sidebar-label">Planning & Analysing</div>
                 <a href="#goalForm" class="nav-link"><button class="nav-btn" data-nav="goal">Set a goal</button></a>
-                <button class="nav-btn">Financial reports</button>
+                <a href="#reports" class="nav-link"><button class="nav-btn" data-nav="reports">Financial reports</button></a>
                 <button class="nav-btn">Budget planner</button>
                 <button class="nav-btn">View Income trend</button>
                 <button class="nav-btn">View Expenses process</button>
@@ -329,6 +330,7 @@
             <a href="#">Help center</a>
         </div>
     </footer>
+    <script src="Javascript/dasboard.js"></script>
 </body>
 
 </html>
