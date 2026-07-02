@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Management System</title>
+
+    <style>
+        #action_btn {
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        
+        #action_btn button {
+            margin-right: 10px;
+            padding: 5px 10px;
+            color: rgb(19, 108, 185);
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+        
+        #error-section {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h1>Employee Management System</h1>
+
+        <div id="action_btn">
+            <button onclick="addEmployee()">Add Employee</button>
+            <button onclick="removeEmployee()">Remove Employee</button>
+        </div>
+
+        <table border="3">
+            <tr>
+                <th>NO</th>
+                <th>Employee Name</th>
+                <th>Salary</th>
+                <th>Net Salary</th>
+            </tr>
+
+            <tbody id="employeeTableBody"></tbody>
+        </table>
+
+        <p id="error-section"></p>
+    </center>
+    <script>
+        function addEmployee() {
+            const tax = 0.04;
+            const n = Number(prompt("Enter number of employees to add:"));
+
+            const employeeTableBody = document.getElementById("employeeTableBody");
+
+            let currentRows = employeeTableBody.getElementsByTagName("tr").length;
+
+            for (let i = 0; i < n; i++) {
+
+                let name = prompt("Enter employee name " + (i + 1) + ":");
+
+                let salary = Number(
+                    prompt("Enter employee salary " + (i + 1) + ":")
+                );
+
+                let netSalary;
+
+                if (salary > 500000) {
+                    netSalary = salary - (salary * tax);
+                } else {
+                    netSalary = salary;
+                }
+
+                employeeTableBody.innerHTML += `
+                    <tr>
+                        <td>${currentRows + i + 1}</td>
+                        <td>${name}</td>
+                        <td>${salary}</td>
+                        <td>${netSalary}</td>
+                    </tr>
+                `;
+            }
+        }
+
+        function removeEmployee() {
+            const errorSection = document.getElementById("error-section");
+
+            errorSection.innerHTML = "";
+
+            const employeeTableBody = document.getElementById("employeeTableBody");
+
+            const rows = employeeTableBody.getElementsByTagName("tr");
+
+            const m = Number(prompt("Enter employee number to remove:"));
+
+            if (m <= 0) {
+                errorSection.innerHTML = "Invalid employee number.";
+                return;
+            }
+
+            if (m > rows.length) {
+                errorSection.innerHTML = "this Employee does not exist in the table. Enter Valid Employee number";
+                return;
+            }
+
+            employeeTableBody.removeChild(rows[m - 1]);
+
+            /* Renumber employees after deletion */
+            let updatedRows =
+                employeeTableBody.getElementsByTagName("tr");
+
+            for (let i = 0; i < updatedRows.length; i++) {
+                updatedRows[i].cells[0].innerHTML = i + 1;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
