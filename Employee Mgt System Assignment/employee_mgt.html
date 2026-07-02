@@ -35,20 +35,25 @@
 
 <body>
 
+
     <center>
         <h1>Employee Management System</h1>
 
         <div id="action_btn">
             <button onclick="addEmployee()">Add Employee</button>
             <button onclick="removeEmployee()">Remove Employee</button>
+            <button onclick="updateEmployeeSalary()">Update Salary</button>
+            <button onclick="HighestPaidEmployee()">Highest Paid Employee</button>
         </div>
 
         <table border="3">
             <tr>
                 <th>NO</th>
                 <th>Employee Name</th>
-                <th>Salary</th>
+                <th>Initial Salary</th>
                 <th>Net Salary</th>
+                <th>Security Fees</th>
+                <th>TAX DEDUCTED</th>
             </tr>
 
             <tbody id="employeeTableBody"></tbody>
@@ -57,6 +62,10 @@
         <p id="error-section"></p>
     </center>
     <script>
+        function Irondo(salary) {
+            return salary * 0.03;
+        }
+
         function addEmployee() {
             const tax = 0.04;
             const n = Number(prompt("Enter number of employees to add:"));
@@ -65,7 +74,7 @@
 
             let currentRows = employeeTableBody.getElementsByTagName("tr").length;
 
-            for (let i = 0; i < n; i++) {
+            for (let i = 0; i <= n; i++) {
 
                 let name = prompt("Enter employee name " + (i + 1) + ":");
 
@@ -75,11 +84,10 @@
 
                 let netSalary;
 
-                if (salary > 500000) {
-                    netSalary = salary - (salary * tax);
-                } else {
-                    netSalary = salary;
-                }
+                netSalary = salary - (salary * tax);
+                irondo = Irondo(netSalary);
+                netSalary = netSalary - irondo;
+
 
                 employeeTableBody.innerHTML += `
                     <tr>
@@ -87,6 +95,8 @@
                         <td>${name}</td>
                         <td>${salary}</td>
                         <td>${netSalary}</td>
+                        <td>${irondo}</td>
+                        <td>${salary * tax}</td>
                     </tr>
                 `;
             }
@@ -123,8 +133,61 @@
                 updatedRows[i].cells[0].innerHTML = i + 1;
             }
         }
+        /* Function to update employee salary */
+
+        function updateEmployeeSalary() {
+            const errorSection = document.getElementById("error-section");
+            errorSection.innerHTML = " ";
+
+            const employeeTableBody = document.getElementById("employeeTableBody");
+
+            const rows = employeeTableBody.getElementsByTagName("tr");
+            const m = Number(prompt("Enter employee number to update salary:"));
+
+            if (m <= 0) {
+                errorSection.innerHTML = "Invalid employee number.";
+                return;
+            } else if (m > rows.length) {
+                errorSection.innerHTML = "this Employee does not exist in the table. Enter Valid Employee number";
+                return;
+            } else {
+                const newSalary = Number(prompt("Enter new salary for employee number " + m + ":"));
+                rows[m - 1].cells[2].innerHTML = newSalary;
+                rows[m - 1].cells[3].innerHTML = newSalary - (newSalary * 0.04) - Irondo(newSalary - (newSalary * 0.04));
+                rows[m - 1].cells[4].innerHTML = Irondo(newSalary - (newSalary * 0.04));
+                rows[m - 1].cells[5].innerHTML = newSalary * 0.04;
+            }
+        }
+        /* FUNCTION TO FIND HIGHEST PAID EMPLOYEE */
+        function HighestPaidEmployee() {
+            var no;
+            const errorSection = document.getElementById("error-section");
+            errorSection.innerHTML = " ";
+
+            const employeeTableBody = document.getElementById("employeeTableBody");
+            const rows = employeeTableBody.getElementsByTagName("tr");
+            if (rows.length === 0) {
+                errorSection.innerHTML = "No employees in the table.";
+                return;
+            } else {
+                var i;
+                var max = rows[0].cells[2].innerHTML;
+                for (i = 1; i < rows.length; i++) {
+                    if (rows[i].cells[2].innerHTML > max) {
+                        max = rows[i].cells[2].innerHTML;
+                        no = i;
+
+                    }
+                }
+                errorSection.style.color = "green";
+                errorSection.style.fontSize = "20px";
+                errorSection.innerHTML = "The highest paid employee Is : " + rows[no].cells[1].innerHTML + " with a salary of: " + max;
+            }
+        }
     </script>
 
 </body>
+
+</html>
 
 </html>
