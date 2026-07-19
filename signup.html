@@ -449,25 +449,26 @@
     <section class="form-section">
         <div class="form-box">
             <h2>Create Account</h2>
-            <form action="login.html" method="get">
+            <form id="signupForm">
                 <div class="input-group">
-                    <input type="text" id="fullname" name="fullname" placeholder=" " required autocomplete="name">
-                    <label for="fullname">Full name</label>
+                    <input type="text" id="signupName" name="fullname" placeholder=" " required autocomplete="name">
+                    <label for="signupName">Full name</label>
                 </div>
                 <div class="input-group">
-                    <input type="email" id="email" name="email" placeholder=" " required autocomplete="email">
-                    <label for="email">Email address</label>
+                    <input type="email" id="signupEmail" name="email" placeholder=" " required autocomplete="email">
+                    <label for="signupEmail">Email address</label>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="password" name="password" placeholder=" " required autocomplete="new-password">
-                    <label for="password">Create password</label>
+                    <input type="password" id="signupPassword" name="password" placeholder=" " required autocomplete="new-password">
+                    <label for="signupPassword">Create password</label>
                 </div>
                 <div class="password-hint">Please create a strong password with at least 8 characters</div>
                 <div class="input-group">
                     <input type="password" id="confirm_password" name="confirm_password" placeholder=" " required autocomplete="off">
                     <label for="confirm_password">Confirm password</label>
                 </div>
-                <button type="submit">Create Account </button>
+                <p id="authMessage" style="margin-top: 6px; color: #ffd8d8; font-size: 13px; min-height: 18px;"></p>
+                <button type="submit">Create Account</button>
             </form>
             <p>
                 Already have an account?
@@ -487,6 +488,7 @@
         <small>© 2026 Smart Finance. All Rights Reserved.</small>
     </footer>
 
+    <script src="Javascript/framework.js"></script>
 </body>
 
 </html>

@@ -437,7 +437,7 @@
         <div class="form-box">
             <h2>Welcome Back</h2>
 
-            <form>
+            <form id="loginForm">
 
                 <div class="input-group">
                     <input type="email" id="loginEmail" name="email" placeholder=" " required autocomplete="email">
@@ -448,7 +448,8 @@
                     <input type="password" id="loginPassword" name="password" placeholder=" " required autocomplete="current-password">
                     <label for="loginPassword">Enter Password</label>
                 </div>
-                <button type="submit" onclick="window.location.href='dashboard.html'">Sign in </button>
+                <p id="authMessage" style="margin-top: 6px; color: #ffd8d8; font-size: 13px; min-height: 18px;"></p>
+                <button type="submit">Sign in</button>
             </form>
             <p>
                 New Here ?
@@ -468,6 +469,7 @@
         <small>© 2026 Smart Finance. All Rights Reserved.</small>
     </footer>
 
+    <script src="Javascript/framework.js"></script>
 </body>
 
 </html>

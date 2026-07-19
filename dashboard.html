@@ -1,41 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>Smart Finance | Dashboard</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css" />
 </head>
 
 <body>
+    <!-- Header -->
     <header class="sf-header">
         <a href="#" class="sf-logo">
-            <div class="sf-logo-mark">SF</div>
-            Smart Finance
+            <span class="sf-logo-mark">SF</span> Smart Finance
         </a>
-        <div class="sf-greeting" id="sf-greeting">
-            Welcome back, Mugisha! we are glad to have you here.
-        </div>
+        <div class="sf-greeting" id="sf-greeting">Welcome back! We are glad to have you here.</div>
         <div class="sf-header-right">
-            <select class="sf-lang-select">
+            <button class="sf-menu-toggle" id="sf-menu-toggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="sf-clock" id="sf-clock">Loading time...</div>
+            <select class="sf-lang-select" aria-label="Language selector">
                 <option value="en">English</option>
                 <option value="fr">Français</option>
                 <option value="rw">Kinyarwanda</option>
                 <option value="es">Swahili</option>
             </select>
-            <div class="sf-dark-toggle">
-                <button id="sf-theme-Toggle">Dark</button>
+            <button class="sf-dark-toggle" id="sf-theme-toggle" aria-label="Toggle dark/light theme">Dark</button>
+            <div class="sf-profile-wrapper">
+                <button class="sf-profile-btn" id="sf-profile-button" aria-label="Profile menu">
+                    <span class="sf-avatar" id="userAvatar">U</span>
+                    <span class="sf-profile-name" id="userName">User</span>
+                </button>
+                <div class="sf-profile-menu" id="sf-profile-menu">
+                    <button type="button" class="profile-menu-option" id="editProfileBtn">Edit profile</button>
+                    <button type="button" class="profile-menu-option" id="logoutBtn">Logout</button>
+                </div>
             </div>
-            <div class="sf-profile-btn">
-                <div class="sf-avatar">ME</div>
-                <span class="sf-profile-name">Mugisha Elise</span>
-            </div>
+        </div>
     </header>
 
+    <!-- Layout -->
     <div class="sf-layout">
+        <!-- Sidebar -->
         <aside>
-            <div class="sidebar-section">
+            <nav class="sidebar-section">
                 <div class="sidebar-label">Record Your Stuff Here</div>
                 <a href="#dashboard" class="nav-link"><button class="nav-btn" data-nav="dashboard">Dashboard</button></a>
                 <a href="#incomeForm" class="nav-link"><button class="nav-btn" data-nav="income">Record income</button></a>
@@ -43,44 +54,46 @@
                 <a href="#savingForm" class="nav-link"><button class="nav-btn" data-nav="saving">Record saving</button></a>
                 <a href="#loanForm" class="nav-link"><button class="nav-btn" data-nav="loan">Record loan</button></a>
                 <a href="#debtorForm" class="nav-link"><button class="nav-btn" data-nav="debtor">Record Debtors</button></a>
-            </div>
+            </nav>
             <div class="sidebar-section">
                 <div class="sidebar-label">Planning & Analysing</div>
                 <a href="#goalForm" class="nav-link"><button class="nav-btn" data-nav="goal">Set a goal</button></a>
                 <a href="#reports" class="nav-link"><button class="nav-btn" data-nav="reports">Financial reports</button></a>
-                <button class="nav-btn">Budget planner</button>
-                <button class="nav-btn">View Income trend</button>
-                <button class="nav-btn">View Expenses process</button>
+                <a href="#budgetPlanner" class="nav-link"><button class="nav-btn" data-nav="budget">Budget planner</button></a>
+                <a href="#incomeTrend" class="nav-link"><button class="nav-btn" data-nav="income-trend">View Income trend</button></a>
+                <a href="#expenseProcess" class="nav-link"><button class="nav-btn" data-nav="expense-process">View Expenses process</button></a>
             </div>
             <div class="divider"></div>
             <div class="sidebar-footer">
                 <small>Better Management Better Future</small>
                 <div class="sidebar-brand">
-                    <div class="sf-logo-mark">SF</div>
+                    <span class="sf-logo-mark">SF</span>
                     <h3>Smart Finance</h3>
                 </div>
             </div>
         </aside>
 
+        <!-- Main Content -->
         <main class="sf-main">
+            <!-- Forms (hidden by default, shown when user clicks a navigation link) -->
             <div id="incomeForm" class="form-panel">
                 <h2 class="form-title">Record Income</h2>
-                <form>
+                <form id="incomeFormElement">
                     <div class="form-group">
                         <label>Income Source</label>
-                        <input type="text" placeholder="e.g., Salary, Freelance, Business" required>
+                        <input type="text" placeholder="e.g., Salary, Freelance, Business" required />
                     </div>
                     <div class="form-group">
                         <label>Amount</label>
-                        <input type="number" placeholder="0" required>
+                        <input type="number" placeholder="0" required />
                     </div>
                     <div class="form-group">
                         <label>Date</label>
-                        <input type="date" required>
+                        <input type="date" required />
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" placeholder="Any notes...">
+                        <input type="text" placeholder="Any details...." />
                     </div>
                     <div class="form-buttons">
                         <button type="submit" class="submit-btn">Save Income</button>
@@ -91,29 +104,29 @@
 
             <div id="expenseForm" class="form-panel">
                 <h2 class="form-title">Record Expense</h2>
-                <form>
+                <form id="expenseFormElement">
                     <div class="form-group">
                         <label>Expense Category</label>
                         <select>
-                            <option>Food & Groceries</option>
+                            <option>Food</option>
                             <option>Transport</option>
                             <option>Rent & Utilities</option>
                             <option>Entertainment</option>
                             <option>Healthcare</option>
-                            <option>Other</option>
+                            <option>Others</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Amount</label>
-                        <input type="number" placeholder="0" required>
+                        <input type="number" placeholder="0" required />
                     </div>
                     <div class="form-group">
                         <label>Date</label>
-                        <input type="date" required>
+                        <input type="date" required />
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" placeholder="What did you spend on?">
+                        <input type="text" placeholder="What did you spend on?" />
                     </div>
                     <div class="form-buttons">
                         <button type="submit" class="submit-btn">Save Expense</button>
@@ -124,24 +137,24 @@
 
             <div id="savingForm" class="form-panel">
                 <h2 class="form-title">Record Saving</h2>
-                <form>
+                <form id="savingFormElement">
                     <div class="form-group">
                         <label>Saving Goal Name</label>
-                        <input type="text" placeholder="e.g., Emergency Fund, Vacation">
+                        <input type="text" placeholder="Why are you saving?" />
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label>Amount Saved</label>
-                            <input type="number" placeholder="0">
+                            <input type="number" placeholder="0" />
                         </div>
                         <div class="form-group">
                             <label>Target Amount</label>
-                            <input type="number" placeholder="Goal amount">
+                            <input type="number" placeholder="Goal amount" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Date</label>
-                        <input type="date">
+                        <input type="date" />
                     </div>
                     <div class="form-buttons">
                         <button type="submit" class="submit-btn">Save Saving</button>
@@ -152,22 +165,22 @@
 
             <div id="loanForm" class="form-panel">
                 <h2 class="form-title">Record Loan Taken</h2>
-                <form>
+                <form id="loanFormElement">
                     <div class="form-group">
                         <label>Lender Name</label>
-                        <input type="text" placeholder="Who did you borrow from?">
+                        <input type="text" placeholder="Who did you borrow from?" />
                     </div>
                     <div class="form-group">
                         <label>Loan Amount</label>
-                        <input type="number" placeholder="0">
+                        <input type="number" placeholder="0" />
                     </div>
                     <div class="form-group">
                         <label>Interest Rate (%)</label>
-                        <input type="number" placeholder="e.g., 5" step="0.1">
+                        <input type="number" placeholder="e.g., 5" step="0.1" />
                     </div>
                     <div class="form-group">
                         <label>Due Date</label>
-                        <input type="date">
+                        <input type="date" />
                     </div>
                     <div class="form-buttons">
                         <button type="submit" class="submit-btn">Record Loan</button>
@@ -178,22 +191,22 @@
 
             <div id="debtorForm" class="form-panel">
                 <h2 class="form-title">Record Debtor</h2>
-                <form>
+                <form id="debtorFormElement">
                     <div class="form-group">
                         <label>Debtor Name</label>
-                        <input type="text" placeholder="Full name">
+                        <input type="text" placeholder="Full name" />
                     </div>
                     <div class="form-group">
                         <label>Amount Owed</label>
-                        <input type="number" placeholder="0">
+                        <input type="number" placeholder="0" />
                     </div>
                     <div class="form-group">
                         <label>Expected Repayment Date</label>
-                        <input type="date">
+                        <input type="date" />
                     </div>
                     <div class="form-group">
                         <label>Reason / Notes</label>
-                        <input type="text" placeholder="Why do they owe you?">
+                        <input type="text" placeholder="Why do they owe you?" />
                     </div>
                     <div class="form-buttons">
                         <button type="submit" class="submit-btn">Save Debtor</button>
@@ -204,22 +217,22 @@
 
             <div id="goalForm" class="form-panel">
                 <h2 class="form-title">Set a Financial Goal</h2>
-                <form>
+                <form id="goalFormElement">
                     <div class="form-group">
                         <label>Goal Name</label>
-                        <input type="text" placeholder="e.g., Buy a car, House, Education">
+                        <input type="text" placeholder="e.g., Buy a car, House, Education" />
                     </div>
                     <div class="form-group">
                         <label>Target Amount</label>
-                        <input type="number" placeholder="0">
+                        <input type="number" placeholder="0" />
                     </div>
                     <div class="form-group">
                         <label>Target Date</label>
-                        <input type="date">
+                        <input type="date" />
                     </div>
                     <div class="form-group">
                         <label>Current Progress</label>
-                        <input type="number" placeholder="Amount saved so far">
+                        <input type="number" placeholder="Amount saved so far" />
                     </div>
                     <div class="form-buttons">
                         <button type="submit" class="submit-btn">Set Goal</button>
@@ -228,6 +241,246 @@
                 </form>
             </div>
 
+            <!-- Financial Reports Page -->
+            <div id="reports" class="form-panel">
+                <h2 class="form-title">Financial Reports</h2>
+                <p class="sf-page-sub" style="margin-bottom:20px;">View your financial data analysis and reports.</p>
+
+                <!-- Summary Cards -->
+                <div class="sf-grid-3" style="margin-bottom:20px;">
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Total Income</div>
+                        <div class="sf-stat-value green" id="reportTotalIncome">--</div>
+                        <div class="sf-stat-sub">All time income</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Total Expenses</div>
+                        <div class="sf-stat-value red" id="reportTotalExpenses">--</div>
+                        <div class="sf-stat-sub">All time expenses</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Net Balance</div>
+                        <div class="sf-stat-value" id="reportNetBalance">--</div>
+                        <div class="sf-stat-sub">Income - Expenses</div>
+                    </div>
+                </div>
+
+                <!-- Monthly Summary Table -->
+                <div class="sf-card" style="margin-top:20px;">
+                    <div class="sf-card-header">
+                        <span class="sf-card-title">Monthly Summary</span>
+                    </div>
+                    <div class="report-table-wrapper">
+                        <table class="sf-report-table">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Income</th>
+                                    <th>Expenses</th>
+                                    <th>Savings</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="monthlySummaryBody">
+                                <tr>
+                                    <td colspan="5" style="text-align:center; color:var(--text-muted);">No data available. Start recording your transactions.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Category Breakdown -->
+                <div class="sf-card" style="margin-top:20px;">
+                    <div class="sf-card-header">
+                        <span class="sf-card-title">Category Breakdown</span>
+                    </div>
+                    <div id="categoryBreakdownContainer" class="category-breakdown">
+                        <p style="color:var(--text-muted); text-align:center; padding:20px 0;">No expense data available. Record your expenses to see breakdown.</p>
+                    </div>
+                </div>
+
+                <div class="form-buttons" style="margin-top:20px;">
+                    <a href="#dashboard" class="cancel-btn">Back to Dashboard</a>
+                </div>
+            </div>
+
+            <!-- Budget Planner Page -->
+            <div id="budgetPlanner" class="form-panel">
+                <h2 class="form-title">Budget Planner</h2>
+                <p class="sf-page-sub" style="margin-bottom:20px;">Set monthly budgets for different categories and track your spending.</p>
+
+                <div class="sf-grid-2" style="margin-bottom:20px;">
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Monthly Budget</div>
+                        <div class="sf-stat-value" id="totalMonthlyBudget">--</div>
+                        <div class="sf-stat-sub">Total budget for this month</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Remaining</div>
+                        <div class="sf-stat-value green" id="budgetRemaining">--</div>
+                        <div class="sf-stat-sub">Budget left to spend</div>
+                    </div>
+                </div>
+
+                <div class="sf-card">
+                    <div class="sf-card-header">
+                        <span class="sf-card-title">Budget Categories</span>
+                        <button class="sf-view-all" onclick="document.getElementById('addBudgetForm').style.display='block'">+ Add Category</button>
+                    </div>
+                    
+                    <!-- Add Budget Form -->
+                    <div id="addBudgetForm" style="display:none; margin-bottom:16px; padding:16px; background:var(--bg-elevated); border-radius:var(--radius);">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Category Name</label>
+                                <input type="text" placeholder="e.g., Groceries" id="budgetCategoryName" />
+                            </div>
+                            <div class="form-group">
+                                <label>Budget Amount</label>
+                                <input type="number" placeholder="0" id="budgetCategoryAmount" />
+                            </div>
+                        </div>
+                        <button class="submit-btn" id="addBudgetBtn">Add Category</button>
+                        <button class="cancel-btn" onclick="document.getElementById('addBudgetForm').style.display='none'">Cancel</button>
+                    </div>
+
+                    <div id="budgetListContainer" class="budget-list">
+                        <p style="color:var(--text-muted); text-align:center; padding:20px 0;">No budget categories set. Add your first category above.</p>
+                    </div>
+                </div>
+
+                <div class="form-buttons" style="margin-top:20px;">
+                    <a href="#dashboard" class="cancel-btn">Back to Dashboard</a>
+                </div>
+            </div>
+
+            <!-- Income Trend Page -->
+            <div id="incomeTrend" class="form-panel">
+                <h2 class="form-title">Income Trend</h2>
+                <p class="sf-page-sub" style="margin-bottom:20px;">Track your income patterns over time.</p>
+
+                <div class="sf-grid-3" style="margin-bottom:20px;">
+                    <div class="sf-card">
+                        <div class="sf-stat-label">This Month</div>
+                        <div class="sf-stat-value green" id="trendThisMonth">--</div>
+                        <div class="sf-stat-sub" id="trendThisMonthChange">Current month income</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Last Month</div>
+                        <div class="sf-stat-value" id="trendLastMonth">--</div>
+                        <div class="sf-stat-sub">Previous month income</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Average Monthly</div>
+                        <div class="sf-stat-value green" id="trendAverage">--</div>
+                        <div class="sf-stat-sub">Average income</div>
+                    </div>
+                </div>
+
+                <div class="sf-card">
+                    <div class="sf-card-header">
+                        <span class="sf-card-title">Monthly Income Chart</span>
+                    </div>
+                    <div class="chart-container">
+                        <div id="incomeBarChart" class="bar-chart">
+                            <p style="color:var(--text-muted); text-align:center; padding:20px 0; width:100%;">No income data available. Start recording your income.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sf-card" style="margin-top:20px;">
+                    <div class="sf-card-header">
+                        <span class="sf-card-title">Income Sources</span>
+                    </div>
+                    <div id="incomeSourcesContainer" class="source-list">
+                        <p style="color:var(--text-muted); text-align:center; padding:20px 0;">No income sources recorded.</p>
+                    </div>
+                </div>
+
+                <div class="form-buttons" style="margin-top:20px;">
+                    <a href="#dashboard" class="cancel-btn">Back to Dashboard</a>
+                </div>
+            </div>
+
+            <!-- Expense Process Page -->
+            <div id="expenseProcess" class="form-panel">
+                <h2 class="form-title">Expense Process</h2>
+                <p class="sf-page-sub" style="margin-bottom:20px;">Analyze your spending patterns and identify areas for improvement.</p>
+
+                <div class="sf-grid-3" style="margin-bottom:20px;">
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Total Expenses</div>
+                        <div class="sf-stat-value red" id="expenseTotalAmount">--</div>
+                        <div class="sf-stat-sub">This month</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Average Daily</div>
+                        <div class="sf-stat-value" id="expenseDailyAverage">--</div>
+                        <div class="sf-stat-sub">Spent per day</div>
+                    </div>
+                    <div class="sf-card">
+                        <div class="sf-stat-label">Biggest Category</div>
+                        <div class="sf-stat-value" id="expenseBiggestCategory" style="font-size:20px;">--</div>
+                        <div class="sf-stat-sub">Largest expense category</div>
+                    </div>
+                </div>
+
+                <div class="sf-card">
+                    <div class="sf-card-header">
+                        <span class="sf-card-title">Weekly Expense Pattern</span>
+                    </div>
+                    <div class="chart-container">
+                        <div id="expenseBarChart" class="bar-chart">
+                            <p style="color:var(--text-muted); text-align:center; padding:20px 0; width:100%;">No expense data available. Start recording your expenses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sf-card" style="margin-top:20px;">
+                    <div class="sf-card-header">
+                        <span class="sf-card-title">Expense Categories</span>
+                    </div>
+                    <div id="expenseCategoriesContainer" class="category-breakdown">
+                        <p style="color:var(--text-muted); text-align:center; padding:20px 0;">No expense data recorded.</p>
+                    </div>
+                </div>
+
+                <div class="sf-card" style="margin-top:20px;">
+                    <div class="sf-card-header">
+                        <span class="sf-card-title">Spending Tips</span>
+                    </div>
+                    <ul class="tips-list" id="spendingTipsList">
+                        <li style="color:var(--text-muted);">Record your expenses to receive personalized spending tips.</li>
+                    </ul>
+                </div>
+
+                <div class="form-buttons" style="margin-top:20px;">
+                    <a href="#dashboard" class="cancel-btn">Back to Dashboard</a>
+                </div>
+            </div>
+
+            <!-- Profile Form -->
+            <div id="profileForm" class="form-panel">
+                <h2 class="form-title">Profile</h2>
+                <form id="profileFormElement">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="profileNameInput" placeholder="Enter your full name" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="profileEmailInput" placeholder="Enter your email" required />
+                    </div>
+                    <p id="profileMessage" class="sf-profile-message"></p>
+                    <div class="form-buttons">
+                        <button type="submit" class="submit-btn">Save Profile</button>
+                        <a href="#dashboard" class="cancel-btn">Cancel</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Dashboard (visible by default) -->
             <div id="dashboard">
                 <h1 class="sf-page-title">Dashboard | Smart Finance & Virtual Wallet</h1>
                 <p class="sf-page-sub">Your Financial overview | monitor your daily transactions and view it here</p>
@@ -238,25 +491,25 @@
 
                 <div class="sf-grid-4">
                     <div class="sf-card">
-                        <div class="sf-stat-label">Total Daily Income</div>
-                        <div class="sf-stat-value green">******</div>
-                        <div class="sf-stat-sub">Your Daily Income</div>
+                        <div class="sf-stat-label">Total Income</div>
+                        <div class="sf-stat-value green" id="incomeTotal">--</div>
+                        <div class="sf-stat-sub">All recorded income</div>
                     </div>
                     <div class="sf-card">
-                        <div class="sf-stat-label">Total Daily Expenses</div>
-                        <div class="sf-stat-value red">******</div>
-                        <div class="sf-stat-sub">Your Daily Expense</div>
+                        <div class="sf-stat-label">Total Expenses</div>
+                        <div class="sf-stat-value red" id="expenseTotal">--</div>
+                        <div class="sf-stat-sub">All recorded expense</div>
                     </div>
                     <div class="sf-card">
                         <div class="sf-stat-label">Net Balance</div>
-                        <div class="sf-stat-value">******</div>
+                        <div class="sf-stat-value" id="balanceTotal">--</div>
                         <div class="sf-stat-sub">Your current balance</div>
                     </div>
                     <div class="sf-card">
-                        <div class="sf-stat-label">Your daily savings</div>
-                        <div class="sf-stat-value green">******</div>
-                        <div class="sf-stat-label">Whole Savings</div>
-                        <div class="sf-stat-value">******</div>
+                        <div class="sf-stat-label">Savings Added</div>
+                        <div class="sf-stat-value green" id="savingsSummary">--</div>
+                        <div class="sf-stat-label">Active Goals</div>
+                        <div class="sf-stat-value" id="goalCount">--</div>
                     </div>
                 </div>
 
@@ -264,20 +517,26 @@
                     <div class="sf-card">
                         <div class="sf-card-header">
                             <span class="sf-card-title">Recent transactions</span>
-                            <button class="sf-view-all">View all</button>
+                            <button class="sf-view-all" id="viewAllTransactions">View all</button>
                         </div>
-                        <div class="sf-empty-placeholder">No transactions yet</div>
+                        <div id="transactionList" class="sf-list">
+                            <p style="color:var(--text-muted); text-align:center; padding:20px 0;">No transactions recorded yet.</p>
+                        </div>
                     </div>
                     <div class="sf-card">
                         <div class="sf-card-header">
                             <span class="sf-card-title">Active loans taken and Debt</span>
-                            <button class="sf-view-all">View all</button>
+                            <button class="sf-view-all" id="viewAllLoans">View all</button>
                         </div>
                         <small>Your Creditors</small>
-                        <div class="sf-empty-placeholder">No loan taken yet</div>
+                        <div id="loanList" class="sf-list">
+                            <p style="color:var(--text-muted); text-align:center; padding:10px 0;">No loans recorded.</p>
+                        </div>
                         <div class="divider"></div>
                         <small>DEBTORS</small>
-                        <div class="sf-empty-placeholder">No any debtors yet</div>
+                        <div id="debtorList" class="sf-list">
+                            <p style="color:var(--text-muted); text-align:center; padding:10px 0;">No debtors recorded.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -286,22 +545,26 @@
                         <div class="sf-card-header">
                             <span class="sf-card-title">Daily financial view Graph</span>
                         </div>
-                        <div class="sf-chart-placeholder">Bar chart of your daily transactions</div>
+                        <div class="sf-chart-placeholder" id="chartSummary">
+                            <span>Chart will display here based on your data</span>
+                        </div>
                     </div>
                     <div class="sf-stack">
                         <div class="sf-card">
                             <div class="sf-card-header">
                                 <span class="sf-card-title">Savings set aside</span>
                             </div>
-                            <div class="sf-stat-value sf-stat-value-sm green">******</div>
-                            <div class="sf-stat-sub">This month's Savings</div>
+                            <div class="sf-stat-value sf-stat-value-sm green" id="monthSavings">--</div>
+                            <div class="sf-stat-sub">This month's savings</div>
                         </div>
                         <div class="sf-card">
                             <div class="sf-card-header">
                                 <span class="sf-card-title">Savings & financial goals</span>
-                                <button class="sf-view-all">View all</button>
+                                <button class="sf-view-all" id="viewAllGoals">View all</button>
                             </div>
-                            <div class="sf-empty-placeholder">Active Goals</div>
+                            <div id="goalList" class="sf-list">
+                                <p style="color:var(--text-muted); text-align:center; padding:10px 0;">No goals set yet.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -322,6 +585,7 @@
         </main>
     </div>
 
+    <!-- Footer -->
     <footer class="sf-footer">
         <div>Smart Finance © 2026. All rights reserved.</div>
         <div class="sf-footer-links">
@@ -330,6 +594,7 @@
             <a href="#">Help center</a>
         </div>
     </footer>
+
     <script src="Javascript/dasboard.js"></script>
 </body>
 
