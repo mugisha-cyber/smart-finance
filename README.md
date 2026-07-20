@@ -10,9 +10,8 @@ Smart Finance is a personal financial management web application to help users m
 ## Technologies
 - HTML
 - CSS
+- Javascript
 
 ## Status
-In development - I am still building user interface.
+In development - I am still building user interface. later I am gonna integrate database.
 
-### Latest updates
-11 june 2026, I added fomrs to record, income, expenses, loans, crditors and debitors
