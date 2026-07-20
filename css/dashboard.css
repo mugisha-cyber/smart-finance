@@ -1081,6 +1081,86 @@ body:has(#expenseProcess:target) .nav-btn[data-nav="expense-process"] {
     text-decoration: underline;
 }
 
+/* Plan Page Styles */
+.plan-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] .plan-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.plan-card .plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    text-align: left;
+}
+
+.plan-card .plan-features li {
+    padding: 6px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.plan-card .plan-features li:last-child {
+    border-bottom: none;
+}
+
+.plan-card .plan-features li::before {
+    content: '✓ ';
+    color: var(--green);
+    font-weight: 700;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.feature-list li::before {
+    content: '✓ ';
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* Status badge styles */
+.status-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.success {
+    background: var(--green-bg);
+    color: var(--green);
+}
+
 
 /*  Responsive designing */
 

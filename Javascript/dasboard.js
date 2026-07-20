@@ -110,4 +110,36 @@
         initMobileMenu();
     });
 
+        // ---------- Plan Page Navigation ----------
+    function initPlanPage() {
+        var viewPlanBtn = document.getElementById('viewPlanBtn');
+        if (!viewPlanBtn) return;
+
+        viewPlanBtn.addEventListener('click', function() {
+            // Close the profile menu
+            var menu = document.getElementById('sf-profile-menu');
+            if (menu) menu.classList.remove('open');
+
+            // Navigate to plan page
+            window.location.hash = 'planPage';
+        });
+    }
+
+    // ---------- Plan Page Interaction ----------
+    function initPlanButtons() {
+        // Handle upgrade buttons on plan page
+        var upgradeBtns = document.querySelectorAll('.plan-card .submit-btn');
+        upgradeBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (btn.textContent.trim() !== 'Current Plan') {
+                    alert('Upgrade feature coming soon! You will be redirected to payment.');
+                }
+            });
+        });
+    }
+
+
+
+
+
 })();
